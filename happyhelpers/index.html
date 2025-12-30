@@ -9,10 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    html { scroll-behavior: smooth; }
     body { font-family: 'Poppins', sans-serif; }
     .wave {
       background: linear-gradient(180deg, #2563eb 0%, #1e40af 100%);
       clip-path: ellipse(140% 100% at 50% 0%);
+    }
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    #mobileMenu {
+      transition: transform 0.3s ease;
     }
   </style>
 </head>
@@ -23,17 +34,38 @@
 <header class="bg-white shadow sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <img src="logo.png" alt="Happy Helpers Logo" class="h-14 w-auto">
+      <div class="h-14 w-14 bg-gradient-to-br from-blue-500 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+        HH
+      </div>
       <div>
         <div class="font-extrabold text-xl">Happy Helpers</div>
+        <div class="text-xs text-slate-500">Your Neighborhood Helpers</div>
       </div>
     </div>
+    
+    <!-- Desktop Nav -->
     <nav class="hidden md:flex gap-8 font-semibold items-center">
-      <a href="#services" class="hover:text-blue-600">Services</a>
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#contact" class="bg-gradient-to-r from-blue-500 to-orange-500 text-white px-5 py-2 rounded-full">Contact</a>
+      <a href="#services" class="hover:text-blue-600 transition">Services</a>
+      <a href="#about" class="hover:text-blue-600 transition">About</a>
+      <a href="#contact" class="bg-gradient-to-r from-blue-500 to-orange-500 text-white px-5 py-2 rounded-full hover:opacity-90 transition">Contact</a>
     </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobileMenuBtn" class="md:hidden text-slate-700 focus:outline-none" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
   </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobileMenu" class="md:hidden bg-white border-t border-slate-200 transform -translate-y-full absolute w-full" style="transform: translateY(-100%);">
+    <div class="px-6 py-4 space-y-3">
+      <a href="#services" class="block py-2 font-semibold hover:text-blue-600 transition">Services</a>
+      <a href="#about" class="block py-2 font-semibold hover:text-blue-600 transition">About</a>
+      <a href="#contact" class="block py-2 font-semibold hover:text-blue-600 transition">Contact</a>
+    </div>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -47,22 +79,23 @@
       </h1>
 
       <p class="mt-6 text-blue-100 text-lg max-w-xl">
-        We’re a local family helping other families. From home projects and lawn care to VHS transfers and healthy living tips — we’re here to help.
+        We're a local family helping other families. From home projects and lawn care to VHS transfers and healthy living tips — we're here to help.
       </p>
 
-      <div class="mt-10 flex gap-4">
-        <a href="#services" class="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-bold shadow-lg">
+      <div class="mt-10 flex gap-4 flex-wrap">
+        <a href="#services" class="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-bold shadow-lg transition">
           See How We Help
         </a>
-        <a href="#contact" class="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-700">
+        <a href="#contact" class="border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-700 transition">
           Say Hello 👋
         </a>
       </div>
     </div>
 
-    <div class="hidden md:block">
-      <!-- Replace with your illustration image -->
-      <img src="hero-illustration.png" alt="Happy Helpers Family" class="w-full max-w-lg mx-auto">
+    <div class="hidden md:flex items-center justify-center">
+      <div class="w-full max-w-lg h-96 bg-white/10 rounded-3xl backdrop-blur-sm flex items-center justify-center text-white/50 text-6xl">
+        👨‍👩‍👧‍👦
+      </div>
     </div>
 
   </div>
@@ -79,7 +112,7 @@
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
       <!-- CARD -->
-      <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl shadow-lg">
+      <div class="service-card bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-2xl shadow-lg cursor-pointer">
         <div class="text-4xl mb-4">🔧</div>
         <h3 class="font-bold text-2xl mb-3">Home Services</h3>
         <ul class="text-sm space-y-2">
@@ -89,7 +122,7 @@
         </ul>
       </div>
 
-      <div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg">
+      <div class="service-card bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl shadow-lg cursor-pointer">
         <div class="text-4xl mb-4">🌱</div>
         <h3 class="font-bold text-2xl mb-3">Healthy Living</h3>
         <ul class="text-sm space-y-2">
@@ -99,7 +132,7 @@
         </ul>
       </div>
 
-      <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-2xl shadow-lg">
+      <div class="service-card bg-gradient-to-br from-emerald-50 to-emerald-100 p-8 rounded-2xl shadow-lg cursor-pointer">
         <div class="text-4xl mb-4">🌾</div>
         <h3 class="font-bold text-2xl mb-3">Lawn Care</h3>
         <ul class="text-sm space-y-2">
@@ -109,7 +142,7 @@
         </ul>
       </div>
 
-      <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-lg">
+      <div class="service-card bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-2xl shadow-lg cursor-pointer">
         <div class="text-4xl mb-4">📼</div>
         <h3 class="font-bold text-2xl mb-3">Media Services</h3>
         <ul class="text-sm space-y-2">
@@ -123,30 +156,191 @@
   </div>
 </section>
 
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
+        About <span class="text-blue-600">Our Family</span>
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        We're not just a business — we're your neighbors who happen to be really good at helping out.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <p class="text-slate-700">
+          Happy Helpers started as a simple idea: what if we could help our neighbors with all those little (and big) tasks that life throws at us? From fixing a leaky faucet to preserving precious family memories on old VHS tapes, we're here to lend a hand.
+        </p>
+        <p class="text-slate-700">
+          We're a family-owned operation that believes in honest work, fair prices, and treating every customer like they're part of our extended family. When you work with us, you're not just getting a service — you're getting people who truly care.
+        </p>
+        <div class="flex gap-4 pt-4">
+          <div class="flex-1 bg-blue-50 p-4 rounded-lg text-center">
+            <div class="text-3xl font-bold text-blue-600">15+</div>
+            <div class="text-sm text-slate-600">Years Experience</div>
+          </div>
+          <div class="flex-1 bg-orange-50 p-4 rounded-lg text-center">
+            <div class="text-3xl font-bold text-orange-600">100%</div>
+            <div class="text-sm text-slate-600">Local & Family</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-100 to-orange-100 rounded-3xl h-96 flex items-center justify-center text-8xl">
+        🏡
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="bg-gradient-to-br from-blue-600 to-blue-800 text-white py-24">
   <div class="max-w-xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-extrabold mb-6">Let’s Chat</h2>
+    <h2 class="text-4xl font-extrabold mb-6">Let's Chat</h2>
     <p class="text-blue-100 mb-10">
-      Tell us what you need help with — we’ll take it from there.
+      Tell us what you need help with — we'll take it from there.
     </p>
 
-    <form class="bg-white text-slate-800 rounded-2xl p-8 shadow-2xl space-y-4">
-      <input class="w-full p-3 rounded border" placeholder="Your Name">
-      <input class="w-full p-3 rounded border" placeholder="Email">
-      <textarea class="w-full p-3 rounded border" rows="4" placeholder="How can we help?"></textarea>
-      <button class="w-full bg-gradient-to-r from-blue-500 to-orange-500 text-white py-3 rounded-lg font-bold">
+    <form id="contactForm" class="bg-white text-slate-800 rounded-2xl p-8 shadow-2xl space-y-4">
+      <div class="text-left">
+        <label for="name" class="block text-sm font-semibold mb-1">Your Name *</label>
+        <input id="name" name="name" type="text" required class="w-full p-3 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="John Doe">
+      </div>
+
+      <div class="text-left">
+        <label for="email" class="block text-sm font-semibold mb-1">Email *</label>
+        <input id="email" name="email" type="email" required class="w-full p-3 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="john@example.com">
+      </div>
+
+      <div class="text-left">
+        <label for="phone" class="block text-sm font-semibold mb-1">Phone (optional)</label>
+        <input id="phone" name="phone" type="tel" class="w-full p-3 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="(555) 123-4567">
+      </div>
+
+      <div class="text-left">
+        <label for="message" class="block text-sm font-semibold mb-1">How can we help? *</label>
+        <textarea id="message" name="message" required class="w-full p-3 rounded border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" placeholder="Tell us about your project..."></textarea>
+      </div>
+
+      <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-orange-500 text-white py-3 rounded-lg font-bold hover:opacity-90 transition">
         Send Message
       </button>
+
+      <div id="formMessage" class="hidden text-sm font-semibold p-3 rounded"></div>
     </form>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
-  © 2025 Happy Helpers — Family Owned & Operated
+<footer class="bg-slate-900 text-slate-400 py-12">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <div class="font-bold text-white text-lg mb-3">Happy Helpers</div>
+        <p class="text-sm">Your trusted neighborhood helpers for all of life's tasks, big and small.</p>
+      </div>
+      <div>
+        <div class="font-bold text-white text-lg mb-3">Quick Links</div>
+        <div class="space-y-2 text-sm">
+          <a href="#services" class="block hover:text-white transition">Services</a>
+          <a href="#about" class="block hover:text-white transition">About</a>
+          <a href="#contact" class="block hover:text-white transition">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="font-bold text-white text-lg mb-3">Get In Touch</div>
+        <p class="text-sm mb-2">📧 hello@happyhelpers.com</p>
+        <p class="text-sm">📞 (555) 123-4567</p>
+      </div>
+    </div>
+    <div class="border-t border-slate-800 pt-8 text-center text-sm">
+      © 2025 Happy Helpers — Family Owned & Operated
+    </div>
+  </div>
 </footer>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  let menuOpen = false;
+
+  mobileMenuBtn.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      mobileMenu.style.transform = 'translateY(0)';
+    } else {
+      mobileMenu.style.transform = 'translateY(-100%)';
+    }
+  });
+
+  // Close mobile menu when clicking a link
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menuOpen = false;
+      mobileMenu.style.transform = 'translateY(-100%)';
+    });
+  });
+
+  // Contact form handling
+  const contactForm = document.getElementById('contactForm');
+  const formMessage = document.getElementById('formMessage');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('name').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+      message: document.getElementById('message').value
+    };
+
+    // Show loading state
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Sending...';
+    submitBtn.disabled = true;
+
+    // Simulate form submission (replace with actual endpoint)
+    try {
+      // In production, replace this with your actual form submission endpoint
+      // await fetch('/api/contact', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify(formData)
+      // });
+
+      // Simulate network delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
+      // Show success message
+      formMessage.textContent = '✓ Message sent! We\'ll get back to you soon.';
+      formMessage.className = 'text-sm font-semibold p-3 rounded bg-green-100 text-green-800';
+      formMessage.classList.remove('hidden');
+      
+      // Reset form
+      contactForm.reset();
+
+      // Hide message after 5 seconds
+      setTimeout(() => {
+        formMessage.classList.add('hidden');
+      }, 5000);
+
+    } catch (error) {
+      // Show error message
+      formMessage.textContent = '✗ Oops! Something went wrong. Please try again.';
+      formMessage.className = 'text-sm font-semibold p-3 rounded bg-red-100 text-red-800';
+      formMessage.classList.remove('hidden');
+    } finally {
+      // Reset button
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }
+  });
+</script>
 
 </body>
 </html>
-
