@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peterman LLC - Your Neighborhood Helpers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .wave-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M30 30c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+        
+        .float-animation {
+            animation: gentleFloat 8s ease-in-out infinite;
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        .orange-glow {
+            box-shadow: 0 0 30px rgba(251, 146, 60, 0.3);
+        }
+        
+        .blue-glow {
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .tech-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-2">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-20 h-20 rounded-xl flex items-center justify-center">
+                        <img src="logo.png" />
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Peterman LLC</h1>
+                        <p class="text-xs text-gray-500">Your Neighborhood Helpers</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300">Services</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300">About</a>
+                    <a href="#contact" class="bg-gradient-to-r from-blue-500 to-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                        Contact Us
+                    </a>
+                </div>
+                
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMenu()">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 py-4 border-t border-gray-200">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-blue-600" onclick="toggleMenu()">Home</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600" onclick="toggleMenu()">Services</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600" onclick="toggleMenu()">About</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600" onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 wave-pattern text-white py-24 px-6 relative overflow-hidden">
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-orange-400 rounded-full opacity-20 float-animation"></div>
+        <div class="absolute bottom-20 right-16 w-24 h-24 bg-orange-300 rounded-full opacity-30 float-animation" style="animation-delay: 2s;"></div>
+        <div class="absolute top-40 right-1/4 w-16 h-16 bg-white rounded-full opacity-10 float-animation" style="animation-delay: 4s;"></div>
+        
+        <div class="container mx-auto text-center relative z-10">
+            <div class="max-w-4xl mx-auto">
+                <!-- Main Heading -->
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 text-glow">
+                    The Peterman Family
+                </h1>
+                <div class="w-32 h-1 bg-gradient-to-r from-orange-400 to-orange-500 mx-auto rounded-full mb-8"></div>
+                
+                <!-- Tagline -->
+                <p class="text-2xl md:text-3xl font-semibold mb-6">
+                    Your <span class="text-orange-400 font-bold">Neighborhood Helpers</span> for the Things That Matter
+                </p>
+                
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-12 leading-relaxed">
+                    We're a local family doing what neighbors do—helping out. From yard work and home repairs to transferring old VHS tapes and sharing healthy living tips, we're here to lend a hand with the everyday things.
+                </p>
+                
+                <!-- Service Highlights -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-3xl mx-auto">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                        <div class="text-3xl mb-2">🔧</div>
+                        <div class="text-sm font-medium">Home Services</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                        <div class="text-3xl mb-2">🌱</div>
+                        <div class="text-sm font-medium">Healthy Living</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                        <div class="text-3xl mb-2">🌾</div>
+                        <div class="text-sm font-medium">Lawn Care</div>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                        <div class="text-3xl mb-2">📼</div>
+                        <div class="text-sm font-medium">VHS Transfer</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#services" class="bg-orange-500 hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 orange-glow">
+                        See How We Help
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white font-semibold py-4 px-10 rounded-full hover:bg-white hover:text-blue-700 transition-all duration-300 transform hover:scale-105">
+                        Say Hello 👋
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-6 bg-white">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    How Our Family <span class="text-orange-500">Helps Yours</span>
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Home Services (Handyman) - Tile 1 -->
+                <div class="card-hover bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 border-l-4 border-orange-500 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-transparent border-2 border-orange-500 rounded-xl flex items-center justify-center mr-4">
+                            <span class="text-2xl">🔧</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Home Services</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Those little (and not so little) things around the house? We've got the tools and know-how to help.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Home repairs</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Assembly projects</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Installation help</li>
+                    </ul>
+                </div>
+
+                <!-- Healthy Living - Tile 2 -->
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 border-l-4 border-green-500 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-transparent border-2 border-green-500 rounded-xl flex items-center justify-center mr-4">
+                            <span class="text-2xl">🌱</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Healthy Living</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        We love sharing simple tips to help families live healthier, happier lives together.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> Family wellness advice</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> Healthy habit tips</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> Simple lifestyle changes</li>
+                    </ul>
+                </div>
+
+                <!-- Lawn Care - Tile 3 -->
+                <div class="card-hover bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 border-l-4 border-emerald-500 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-transparent border-2 border-emerald-500 rounded-xl flex items-center justify-center mr-4">
+                            <span class="text-2xl">🌾</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Lawn Care</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        We take pride in keeping your yard healthy and beautiful. We'll treat your grass like it's our own backyard.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Weekly mowing & edging</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Seasonal cleanup</li>
+                        <li class="flex items-center"><span class="text-blue-500 mr-2">•</span> Garden maintenance</li>
+                    </ul>
+                </div>
+
+                <!-- Media Services - Tile 4 -->
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 border-l-4 border-purple-500 shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-14 h-14 bg-transparent border-2 border-purple-500 rounded-xl flex items-center justify-center mr-4">
+                            <span class="text-2xl">📼</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900">Media Services</h3>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Don't let those precious VHS memories fade away. We'll carefully transfer your old tapes to digital format so you can enjoy them for years to come.
+                    </p>
+                    <ul class="text-sm text-gray-600 space-y-2">
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> VHS to digital conversion</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> Preserve family memories</li>
+                        <li class="flex items-center"><span class="text-orange-500 mr-2">•</span> High-quality transfers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-gradient-to-br from-blue-600 to-blue-800">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                    Let's Chat!
+                </h2>
+                <p class="text-xl text-blue-100 max-w-2xl mx-auto">
+                    Ready to get some help? We'd love to hear about your project and see how we can lend a hand.
+                </p>
+            </div>
+            
+            <div class="max-w-5xl mx-auto">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl p-8 shadow-2xl max-w-2xl mx-auto w-full">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
+                    <form onsubmit="event.preventDefault(); showMessage();" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" 
+                                       placeholder="First & Last Name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="email" name="email" 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" 
+                                       placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-700 font-medium mb-2">How Can We Help?</label>
+                            <select id="subject" name="subject" 
+                                    class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" required>
+                                <option value="">Choose a service...</option>
+                                <option value="home-services">Home Services</option>
+                                <option value="healthy-living">Healthy Living</option>
+                                <option value="lawn-care">Lawn Care</option>
+                                <option value="media-services">Media Services</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Tell Us More</label>
+                            <textarea id="message" name="message" rows="4" 
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-blue-500 focus:outline-none transition-colors duration-300" 
+                                      placeholder="Share the details of your project..." required></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-blue-500 to-orange-500 text-white font-bold py-4 px-6 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                            Send Our Family a Message
+                        </button>
+                    </form>
+                    
+                    <div id="message-box" class="mt-6 hidden bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-lg relative">
+                        <span class="block">✅ Thanks! We'll get back to you soon - the Peterman family</span>
+                        <button class="absolute top-2 right-2 text-green-600 hover:text-green-800" onclick="closeMessage()">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="container mx-auto">         
+            <div class="text-center">
+                <p class="text-gray-400">
+                    &copy; 2025 Peterman LLC.  
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Show success message
+        function showMessage() {
+            const messageBox = document.getElementById('message-box');
+            messageBox.classList.remove('hidden');
+            
+            // Auto-hide after 6 seconds
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 6000);
+        }
+
+        // Close success message
+        function closeMessage() {
+            const messageBox = document.getElementById('message-box');
+            messageBox.classList.add('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
